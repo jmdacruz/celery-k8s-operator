@@ -49,9 +49,7 @@ You can deploy the operator and related resources by simply doing:
 ```console
 kubectl apply -f deploy/crd.yml
 kubectl apply -f deploy/namespace.yml
-kubectl apply -f deploy/role_binding.yml
-kubectl apply -f deploy/role.yml
-kubectl apply -f deploy/service_account.yml
+kubectl apply -f deploy/rbac.yml
 ```
 
 You can then launch the operator by running:
