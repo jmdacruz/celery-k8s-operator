@@ -12,9 +12,9 @@ DIRNAME="$( cd "$(dirname "$0")" ; pwd -P )"
 pushd $DIRNAME
 
 
-kind delete cluster
+kind delete cluster -q
 check $?
-kind create cluster --config kind.yml
+kind create cluster -q --config kind.yml
 check $?
 
 popd
