@@ -10,10 +10,14 @@ addons:
         packages:
             - jq
 install: |
+    mkdir -p ~/.local/bin
+    export PATH=~/.local/bin:$PATH
+
     # Install kind
     curl -Lo ~/.local/bin/kind https://github.com/kubernetes-sigs/kind/releases/download/v0.6.1/kind-$(uname)-amd64
     chmod +x ~/.local/bin/kind
 
+    # Install kubectl
     curl -Lo ~/.local/bin/kubectl https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
     chmod +x ~/.local/bin/kubectl
 
