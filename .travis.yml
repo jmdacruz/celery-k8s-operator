@@ -1,14 +1,10 @@
 language: python
+python: 3.7
 dist: bionic
 os:
     - linux
 services:
     - docker
-addons:
-    apt:
-        update: true
-        packages:
-            - pipenv
 install: |
     mkdir -p ~/.local/bin
     export PATH=~/.local/bin:$PATH
@@ -22,6 +18,7 @@ install: |
     chmod +x ~/.local/bin/kubectl
 
     # Prepare pipenv
+    pip install pipenv
     pipenv install --dev
 
 before_script: ./.ci/before_script.sh
