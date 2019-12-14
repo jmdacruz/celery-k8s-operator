@@ -1,4 +1,4 @@
-FROM python:3.7
+FROM python:3.7.5-slim-buster
 ADD Pipfile /src/Pipfile
 ADD Pipfile.lock /src/Pipfile.lock
 ADD handlers.py /src/handlers.py
