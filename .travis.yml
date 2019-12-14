@@ -1,0 +1,21 @@
+language: python
+dist: bionic
+os:
+    - linux
+services:
+    - docker
+addons:
+    apt:
+        update: true
+        packages:
+            - jq
+install: |
+    # Install kind
+    curl -Lo ~/.local/bin/kind https://github.com/kubernetes-sigs/kind/releases/download/v0.6.1/kind-$(uname)-amd64
+    chmod +x ~/.local/bin/kind
+
+    curl -Lo ~/.local/bin/kubectl https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+    chmod +x ~/.local/bin/kubectl
+
+before_script: ./.ci/before_script.sh
+script: ./.ci/script.sh
