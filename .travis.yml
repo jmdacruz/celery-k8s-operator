@@ -8,7 +8,7 @@ addons:
     apt:
         update: true
         packages:
-            - jq
+            - pipenv
 install: |
     mkdir -p ~/.local/bin
     export PATH=~/.local/bin:$PATH
@@ -21,5 +21,10 @@ install: |
     curl -Lo ~/.local/bin/kubectl https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
     chmod +x ~/.local/bin/kubectl
 
+    # Prepare pipenv
+    pipenv install --dev
+
 before_script: ./.ci/before_script.sh
-script: ./.ci/script.sh
+script: |
+    ./.ci/script.sh
+    pipenv run pytest -m integration

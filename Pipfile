@@ -6,6 +6,7 @@ verify_ssl = true
 [dev-packages]
 autopep8 = "*"
 docformatter = "*"
+pytest = "==5.3.1"
 
 [packages]
 kopf = "==0.23.2"
