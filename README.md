@@ -1,7 +1,7 @@
 # Kubernetes Operator for Celery
 
 ![status:alpha](https://img.shields.io/badge/status-alpha-red)
-![build:status](https://api.travis-ci.com/jmdacruz/celery-k8s-operator.svg?branch=master)
+[![Build Status](https://travis-ci.com/jmdacruz/celery-k8s-operator.svg?branch=master)](https://travis-ci.com/jmdacruz/celery-k8s-operator)
 
 This project is an attempt to implement a fully functioning Kubernetes Operator for Celery, based on the concepts documented [here](https://github.com/celery/ceps/issues/24). While there is a fully functioning [Operator SDK](https://github.com/operator-framework/operator-sdk) in Go, and given that Celery is natively written in Python, we decided to use [kopf](https://github.com/zalando-incubator/kopf) as the framework for building and running this operator.
 
