@@ -21,7 +21,9 @@ install: |
     pip install pipenv
     pipenv install --dev
 
-before_script: ./.ci/before_script.sh
-script: |
-    ./.ci/script.sh
-    pipenv run pytest -m integration
+before_script: ./.ci/create_cluster.sh
+script:
+    - ./.ci/build.sh
+    - ./.ci/load.sh
+    - ./.ci/deploy.sh
+    - pipenv run pytest -m integration
