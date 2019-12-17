@@ -21,7 +21,7 @@ install: |
     pip install pipenv
     pipenv install --dev
 
-before_script: ./.ci/before_script.sh
+before_script: ./.ci/create_cluster.sh
 script:
     - ./.ci/build.sh
     - ./.ci/load.sh
