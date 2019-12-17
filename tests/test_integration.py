@@ -6,8 +6,8 @@ def wait_for_workers(expected_workers=2, prefix="celery@add-operator-example-wor
     iteration = 0 
     while iteration < limit:
         res = requests.get("http://localhost:8001/api/v1/namespaces/celery-example/services/add-operator-example-flower/proxy/api/workers?status=true")
+        obj = None
         if res.status_code == 200:
-            obj = None
             try:
                 obj = res.json()
             except:
