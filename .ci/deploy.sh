@@ -1,9 +1,9 @@
 #!/bin/bash
 
-source ./tools.sh
-
 DIRNAME="$( cd "$(dirname "$0")" ; pwd -P )"
 pushd $DIRNAME
+
+source ./tools.sh
 
 kubectl apply -f ../deploy/crd.yml
 check $?
@@ -27,3 +27,5 @@ wait_for_object_creation deployment/add-operator-example-flower celery-example
 check $?
 kubectl wait --for=condition=available --timeout=60s deployment/add-operator-example-flower -n celery-example
 check $?
+
+popd

@@ -30,5 +30,4 @@ function wait_for_object_creation(){
     else
         (exit 0)
     fi
-
 }
