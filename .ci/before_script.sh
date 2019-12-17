@@ -1,15 +1,6 @@
 #!/bin/bash
 
-
-function check(){
-    if [ "$1" -ne "0" ]; then
-        if [ ! -z "$2" ]; then
-            >&2 echo "Error: $2"
-        fi
-        exit 1
-    fi
-}
-
+source ./tools.sh
 
 DIRNAME="$( cd "$(dirname "$0")" ; pwd -P )"
 pushd $DIRNAME
